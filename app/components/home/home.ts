@@ -11,6 +11,14 @@ import {Contact, ContactService} from '../../services/contact';
 			<div class="text-sz-xs text-muted">&lt;subtitle&gt;</div>
 			<br />
 
+			<div class="row">
+				<div class="input-field col s6">
+		          	<input id="last_name" type="text" class="validate">
+		          	<label for="last_name">Last Name</label>
+		        </div>		
+	        </div>
+			<br />
+
 			<table class="table table-hover table-outline">
 				<thead class="thead-default">
 					<tr>
