@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default navbar-white navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><span class="text-sz-l">E&T</span> <span class="text-primary">Service Platform</span></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li>
+        <a>☰</a>
+      </li>
+      <li *ngFor="let option of options">
+      	<a [routerLink]="[option.route]">{{option.label}}</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Usuario</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <!-- <button class="btn btn-danger navbar-btn">Button</button> -->
+    </ul>
+  </div>
+</nav>
+
+<div class="nav-bar-spacer"></div>
