@@ -1,7 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { APP_BASE_HREF } from '@angular/common';
 
 // import routes
 import { routing } from './app.routing';
@@ -10,6 +9,9 @@ import { routing } from './app.routing';
 import { AppComponent }  from './components/app/app';
 import AppNavbarComponent from './components/navbar/navbar';
 import { HomeComponent } from './components/home/home';
+import { ContactListComponent } from './components/contact/list/list';
+import { ContactViewComponent } from './components/contact/view/view';
+import { SeedComponent } from './components/z-seed/seed';
 
 // import services
 import { ContactService } from "./services/contact";
@@ -22,12 +24,14 @@ import { ContactService } from "./services/contact";
   declarations: [ 
   					AppComponent,
   					AppNavbarComponent,
-  					HomeComponent
+  					HomeComponent,
+            SeedComponent,
+            ContactListComponent,
+            ContactViewComponent
   				],
   providers:    [ 
-	                { provide: APP_BASE_HREF, useValue: '/' },
 	                ContactService
-				],
+				        ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
