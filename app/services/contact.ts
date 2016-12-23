@@ -1,68 +1,59 @@
-export class Datetime {
-  constructor(
-    public day: number,
-    public month: number,
-    public year: number) {
-  }
-  toString():string {
-    return this.day +'/'+ this.month +'/'+ this.year;
-  }
-}
-
-export class Name {
-  constructor(
-    public first: string,
-    public middle: string,
-    public last: string,
-    public secondLast: string) { 
-  }
-  toString():string { 
-    return this.first + (this.middle ? ' '+this.middle[0].toUpperCase()+'.' : '') + ' ' + this.last + (this.secondLast ? ' '+this.secondLast : '');
-  } 
-}
+import {Datetime, Name} from './types';
 
 export class Contact {
+  id: number;
+  name: Name;
+  birthdate: Datetime;
+  tags: Array<string>;
+
   constructor(
-    public id: number,
-    public name: Name,
-    public birthdate: Datetime,
-    public tags: Array<string>) {
+    id: number,
+    name: {first: string, middle: string, last: string, secondLast: string},
+    birthdate: {day: number, month: number, year: number},
+    tags: Array<string>) {
+      this.id = id;
+      this.name = Name.create(name);
+      this.birthdate = Datetime.createDate(birthdate);
+      this.tags = tags;
   }
 }
 
 export class ContactService {
   getContacts(): Array<Contact> {
-    return contacts.map(p => new Contact(p.id, p.name, p.birthdate, p.tags));
+    return contacts.map(function(contact) {
+      return new Contact(contact.id, contact.name, contact.birthdate, contact.tags);
+    });
   }
 
   getContactById(contactId: number): Contact {
-    return contacts.find(p => p.id == contactId);
+    var contact = contacts.find(p => p.id == contactId);
+    return new Contact(contact.id, contact.name, contact.birthdate, contact.tags);
   }
 }
 
 var contacts = [
   {
     "id": 0,
-    "name": new Name("Daniel", "Alfred", "Cooper", ""),
-    "birthdate": new Datetime(14, 6, 1993),
+    "name": {first: "Daniel", middle: "Alfred", last: "Cooper", secondLast: ""},
+    "birthdate": {day: 14, month: 6, year: 1993},
     "tags": ["pelo rojo", "ingeniero"]
   },
   {
     "id": 1,
-    "name": new Name("Valerie", "", "Guttenberg", ""),
-    "birthdate": new Datetime(14, 6, 1993),
+    "name": {first: "Valerie", middle: "", last: "Guttenberg", secondLast: ""},
+    "birthdate": {day: 14, month: 6, year: 1993},
     "tags": ["pelo rojo", "ingeniero"]
   },
   {
     "id": 2,
-    "name": new Name("Patricia", "", "Veracruz", "Oviedo"),
-    "birthdate": new Datetime(14, 6, 1993),
+    "name": {first: "Patricia", middle: "", last: "Veracruz", secondLast: "Oviedo"},
+    "birthdate": {day: 14, month: 6, year: 1993},
     "tags": ["pelo rojo", "ingeniero"]
   },
   {
     "id": 3,
-    "name": new Name("Yao", "", "Ming", ""),
-    "birthdate": new Datetime(14, 6, 1993),
+    "name": {first: "Yao", middle: "", last: "Ming", secondLast: ""},
+    "birthdate": {day: 14, month: 6, year: 1993},
     "tags": ["pelo rojo", "ingeniero"]
   }
 ];

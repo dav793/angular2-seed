@@ -1,21 +1,18 @@
-# Angular QuickStart Source
-[![Build Status][travis-badge]][travis-badge-url]
+# Angular 2 QuickStart Seed
 
-This repository holds the TypeScript source code of the [angular.io quickstart](https://angular.io/docs/ts/latest/quickstart.html),
-the foundation for most of the documentation samples and potentially a good starting point for your application.
+This repository holds a basic starter project ready to begin developing an Angular 2 application.
 
-It's been extended with testing support so you can start writing tests immediately.
+The following tools, libraries and frameworks are already installed and ready to use:
+* `TypeScript Compiler` - for transpiling and watching .ts source files
+* `SystemJS` - for module linking
+* `Jasmine` - for testing
+* `Karma` - for testing
+* `Istanbul` - for code coverage
+* `Twitter Boostrap` - for UI styling
+* `materialize-css` - for UI styling
+* `jQuery` - for JS utilities
 
-**This is not the perfect arrangement for your application. It is not designed for production.
-It exists primarily to get you started quickly with learning and prototyping in Angular**
-
-We are unlikely to accept suggestions about how to grow this QuickStart into something it is not.
-Please keep that in mind before posting issues and PRs.
-
-## Prerequisites
-
-Node.js and npm are essential to Angular development. 
-    
+### Prerequisites
 <a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank" title="Installing Node.js and updating npm">
 Get it now</a> if it's not already installed on your machine.
  
@@ -29,15 +26,8 @@ We recommend [nvm](https://github.com/creationix/nvm) for managing multiple vers
 
 Clone this repo into new project folder (e.g., `my-proj`).
 ```bash
-git clone  https://github.com/angular/quickstart  my-proj
+git clone  https://github.com/dav793/angular2-seed.git  my-proj
 cd my-proj
-```
-
-We have no intention of updating the source on `angular/quickstart`.
-Discard everything "git-like" by deleting the `.git` folder.
-```bash
-rm -rf .git  # non-Windows
-rd .git /S/Q # windows
 ```
 
 ### Create a new git repo
@@ -91,11 +81,11 @@ with excellent support for Angular apps that use routing.
 
 Here are the test related scripts:
 * `npm test` - compiles, runs and watches the karma unit tests
+* `npm run test-coverage` - compiles and runs the karma unit tests, and generates code a coverage report under `./coverage`
 * `npm run e2e` - run protractor e2e tests, written in JavaScript (*e2e-spec.js)
 
 ## Testing
 
-The QuickStart documentation doesn't discuss testing.
 This repo adds both karma/jasmine unit test and protractor end-to-end testing support.
 
 These tools are configured for specific conventions described below.
@@ -120,6 +110,9 @@ Test-runner output appears in the terminal window.
 We can update our app and our tests in real-time, keeping a weather eye on the console for broken tests.
 Karma is occasionally confused and it is often necessary to shut down its browser or even shut the command down (`Ctrl-C`) and
 restart it. No worries; it's pretty quick.
+
+### Code coverage
+Run `npm run test-coverage` to run the unit tests noramlly in Karma, and generate a comprehensive code coverage report using Istanbul. The generated report is stored in the directory `./coverage`
 
 ### End-to-end (E2E) Tests
 

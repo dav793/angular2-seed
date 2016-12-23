@@ -16,22 +16,28 @@ import { SeedComponent } from './components/z-seed/seed';
 // import services
 import { ContactService } from "./services/contact";
 
+// import pipes
+import { dateToStringPipe } from "./pipes/dateToString.pipe";
+import { nameToStringPipe } from "./pipes/nameToString.pipe";
+
 @NgModule({
-  imports:      [ 
-  					BrowserModule, 
-  					routing
-				],
+  imports: [ 
+	    BrowserModule, 
+	    routing
+	],
   declarations: [ 
-  					AppComponent,
-  					AppNavbarComponent,
-  					HomeComponent,
-            SeedComponent,
-            ContactListComponent,
-            ContactViewComponent
-  				],
-  providers:    [ 
-	                ContactService
-				        ],
-  bootstrap:    [ AppComponent ]
+			AppComponent,
+			AppNavbarComponent,
+			HomeComponent,
+      SeedComponent,
+      ContactListComponent,
+      ContactViewComponent,
+      dateToStringPipe,
+      nameToStringPipe
+	],
+  providers: [ 
+      ContactService
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
