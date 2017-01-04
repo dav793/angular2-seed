@@ -12,7 +12,8 @@
     "test-once": "tsc && karma start karma.conf.js --single-run",
     "test-coverage": "tsc && karma start karma.conf.js --reporters clear-screen,dots,coverage --single-run",
     "tsc": "tsc",
-    "tsc:w": "tsc -w"
+    "tsc:w": "tsc -w",
+    "fakeAPI": "json-server --watch app/db.json --port 3004"
   },
   "keywords": [],
   "author": "",
@@ -42,27 +43,32 @@
     "zone.js": "^0.7.4"
   },
   "devDependencies": {
-    "concurrently": "^3.1.0",
-    "lite-server": "^2.2.2",
-    "typescript": "~2.0.10",
+    "@types/jasmine": "^2.5.36",
+    "@types/node": "^6.0.46",
+    "@types/selenium-webdriver": "2.53.33",
+    "browserify": "^13.1.1",
     "canonical-path": "0.0.2",
+    "concurrently": "^3.1.0",
     "http-server": "^0.9.0",
-    "tslint": "^3.15.1",
-    "lodash": "^4.16.4",
     "istanbul": "^0.4.4",
+    "jasmine-core": "~2.4.1",
     "karma": "^1.1.2",
+    "karma-browserify": "^5.1.0",
     "karma-chrome-launcher": "^1.0.1",
     "karma-clear-screen-reporter": "^1.0.0",
     "karma-cli": "^1.0.1",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
-    "jasmine-core": "~2.4.1",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-sinon": "^1.0.5",
+    "lite-server": "^2.2.2",
+    "lodash": "^4.16.4",
     "protractor": "~4.0.13",
     "rimraf": "^2.5.4",
-    "@types/node": "^6.0.46",
-    "@types/jasmine": "^2.5.36",
-    "@types/selenium-webdriver": "2.53.33"
+    "sinon": "^1.17.7",
+    "tslint": "^3.15.1",
+    "typescript": "~2.0.10",
+    "watchify": "^3.8.0"
   },
   "repository": {}
 }

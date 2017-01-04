@@ -15,14 +15,16 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['browserify', 'jasmine', 'sinon'],
 
     plugins: [
+      require('karma-browserify'),
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
-      require('karma-clear-screen-reporter')
+      require('karma-clear-screen-reporter'),
+      require('karma-sinon')
     ],
 
     client: {
@@ -98,7 +100,10 @@ module.exports = function(config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: { '**/app/*.js': 'coverage' },
+    preprocessors: {
+      '**/app/*.js': [ 'browserify' ],
+      '**/app/*.js': 'coverage'
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
