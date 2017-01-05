@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class Sandbox1Component {
   title = 'sandbox1 component works';
+
+  myFunc() {
+    return 'yeeah';
+  }
 }

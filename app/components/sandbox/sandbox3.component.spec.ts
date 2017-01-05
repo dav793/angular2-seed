@@ -19,7 +19,7 @@ describe('Sandbox3 Component: call synchronous function on service', () => {
   beforeEach(async(() => {
     // stub sandbox3 service for test purposes
     sandbox3ServiceStub = {
-      data: 'this data comes from the sandbox3 service stub',
+      data: 'this data comes from the stubbed service',
       getSynchronousData: function() { return this.data; }
     };
 
@@ -44,9 +44,9 @@ describe('Sandbox3 Component: call synchronous function on service', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should be injected a service with data equal to "this data comes from the sandbox3 service stub"', () => {
+  it('the injected service should contain "this data comes from the stubbed service" in data', () => {
     let service = fixture.debugElement.injector.get(Sandbox3Service);
-    expect(service.data).toEqual("this data comes from the sandbox3 service stub");
+    expect(service.data).toEqual("this data comes from the stubbed service");
   });
 
 });

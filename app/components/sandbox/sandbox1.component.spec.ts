@@ -16,6 +16,7 @@ describe('Sandbox1 Component: use a fixture to test a component', () => {
   it('should be able to get the component instance', async(() => {
     let fixture = TestBed.createComponent(Sandbox1Component);
     let app = fixture.debugElement.componentInstance;
+    console.log(app);
     expect(app).toBeTruthy();
   }));
 

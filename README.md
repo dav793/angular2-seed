@@ -1,26 +1,28 @@
-# Angular 2 QuickStart Seed
+# Angular 2 QuickStart with working example tests
 
-This repository holds a basic starter project ready to begin developing an Angular 2 application.
+This project was made on top of the Angular 2 QuickStart project on [github](https://github.com/angular/quickstart)
 
-The following tools, libraries and frameworks are already installed and ready to use:
-* `TypeScript Compiler` - for transpiling and watching .ts source files
-* `SystemJS` - for module linking
-* `Jasmine` - for testing
-* `Karma` - for testing
-* `Istanbul` - for code coverage
-* `Twitter Boostrap` - for UI styling
-* `materialize-css` - for UI styling
-* `jQuery` - for JS utilities
+It contains a basic Angular 2 TypeScript application with working unit tests (karma-jasmine). It demonstrates 
+some usages of components and services. The tested scenarios include:
+* Services sending HTTP requests
+* Injection of stubbed/mocked dependencies
+* Syncrhonous component-service communication
+* Asynchronous component-service communication
+* Use of mock and spy test doubles
+* Use of [sinon](https://www.npmjs.com/package/karma-sinon) test doubles (stubs, mocks, spies)
+
+ 
+This app also uses:
+* [browserify] (https://www.npmjs.com/package/browserify)
+* [lite-server] (https://www.npmjs.com/package/lite-server)
+* [materialize-css] (https://www.npmjs.com/package/materialize-css)
+* jQuery
 
 ### Prerequisites
-<a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank" title="Installing Node.js and updating npm">
-Get it now</a> if it's not already installed on your machine.
- 
+
 **Verify that you are running at least node `v4.x.x` and npm `3.x.x`**
 by running `node -v` and `npm -v` in a terminal/console window.
 Older versions produce errors.
-
-We recommend [nvm](https://github.com/creationix/nvm) for managing multiple versions of node and npm.
 
 ## Create a new project based on the QuickStart
 
@@ -30,24 +32,6 @@ git clone  https://github.com/dav793/angular2-seed.git  my-proj
 cd my-proj
 ```
 
-### Create a new git repo
-You could [start writing code](#start-development) now and throw it all away when you're done.
-If you'd rather preserve your work under source control, consider taking the following steps.
-
-Initialize this project as a *local git repo* and make the first commit:
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-```
-
-Create a *remote repository* for this project on the service of your choice.
-
-Grab its address (e.g. *`https://github.com/<my-org>/my-proj.git`*) and push the *local repo* to the *remote*.
-```bash
-git remote add origin <repo-address>
-git push -u origin master
-```
 ## Install npm packages
 
 > See npm and nvm version notes above
@@ -64,8 +48,6 @@ then simultaneously re-compiles and runs the `lite-server`.
 Both the compiler and the server watch for file changes.
 
 Shut it down manually with `Ctrl-C`.
-
-You're ready to write your application.
 
 ### npm scripts
 
@@ -88,51 +70,23 @@ Here are the test related scripts:
 
 This repo adds both karma/jasmine unit test and protractor end-to-end testing support.
 
-These tools are configured for specific conventions described below.
 
-*It is unwise and rarely possible to run the application, the unit tests, and the e2e tests at the same time.
-We recommend that you shut down one before starting another.*
 
 ### Unit Tests
 TypeScript unit-tests are usually in the `app` folder. Their filenames must end in `.spec`.
 
-Look for the example `app/app.component.spec.ts`.
-Add more `.spec.ts` files as you wish; we configured karma to find them.
+Add more `.spec.ts` files as you wish; karma was configured to find them.
 
 Run it with `npm test`
 
 That command first compiles the application, then simultaneously re-compiles and runs the karma test-runner.
-Both the compiler and the karma watch for (different) file changes.
+Both the compiler and karma watch for file changes.
 
 Shut it down manually with `Ctrl-C`.
 
-Test-runner output appears in the terminal window.
-We can update our app and our tests in real-time, keeping a weather eye on the console for broken tests.
+Test-runner output appears both in the terminal window and the browser window by using the jasmine html reporter.
 Karma is occasionally confused and it is often necessary to shut down its browser or even shut the command down (`Ctrl-C`) and
 restart it. No worries; it's pretty quick.
 
-### Code coverage
-Run `npm run test-coverage` to run the unit tests noramlly in Karma, and generate a comprehensive code coverage report using Istanbul. The generated report is stored in the directory `./coverage`
-
-### End-to-end (E2E) Tests
-
-E2E tests are in the `e2e` directory, side by side with the `app` folder.
-Their filenames must end in `.e2e-spec.ts`.
-
-Look for the example `e2e/app.e2e-spec.ts`.
-Add more `.e2e-spec.js` files as you wish (although one usually suffices for small projects);
-we configured protractor to find them.
-
-Thereafter, run them with `npm run e2e`.
-
-That command first compiles, then simultaneously starts the Http-Server at `localhost:8080`
-and launches protractor.  
-
-The pass/fail test results appear at the bottom of the terminal window.
-A custom reporter (see `protractor.config.js`) generates a  `./_test-output/protractor-results.txt` file
-which is easier to read; this file is excluded from source control.
-
-Shut it down manually with `Ctrl-C`.
-
-[travis-badge]: https://travis-ci.org/angular/quickstart.svg?branch=master
-[travis-badge-url]: https://travis-ci.org/angular/quickstart
+### Code coverage (currently broken!)
+Run `npm run test-coverage` to run the unit tests normally in Karma, and generate a comprehensive code coverage report using Istanbul. The generated report is stored in the directory `./coverage`

@@ -20,11 +20,13 @@ export class Sandbox5Component implements OnInit {
     this.getUsers();
   }
 
-  public getUsers() {
+  getUsers() {
     this.sandbox5Service.getUsers()
       .subscribe(
         users => this.users = users,
         error =>  this.errorMsg = <any>error);
   }
+
+  myFunc() { return 'hello'; }
 
 }

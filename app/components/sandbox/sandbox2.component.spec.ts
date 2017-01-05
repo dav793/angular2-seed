@@ -6,7 +6,7 @@ import { DebugElement }    from '@angular/core';
 
 import { Sandbox2Component } from './sandbox2.component';
 
-describe('Sandbox2 Component: compile component to link with templateUrl', () => {
+describe('Sandbox2 Component: compile component with templateUrl', () => {
 
   let comp:    Sandbox2Component;
   let fixture: ComponentFixture<Sandbox2Component>;

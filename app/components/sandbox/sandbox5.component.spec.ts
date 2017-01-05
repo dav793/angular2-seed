@@ -4,6 +4,8 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { By }              from '@angular/platform-browser';
 import { DebugElement }    from '@angular/core';
 
+import { HttpModule } from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/operator/mergeMap';
@@ -19,7 +21,6 @@ describe('Sandbox5 Component: HTTP service calls', () => {
   let fixture: ComponentFixture<Sandbox5Component>;
   let de:      DebugElement;
   let el:      HTMLElement;
-  let sandbox: any;
   let sandbox5ServiceStub: any;
 
   beforeEach(async(() => {
@@ -38,13 +39,13 @@ describe('Sandbox5 Component: HTTP service calls', () => {
 
     TestBed.configureTestingModule({
       declarations: [ Sandbox5Component ],
-      providers:    [ {provide: Sandbox5Service, useValue: sandbox5ServiceStub } ]
+      imports:      [ HttpModule ],
+      providers:    [ { provide: Sandbox5Service, useValue: sandbox5ServiceStub } ]
     });
     TestBed.compileComponents()
       .then(() => {
         fixture = TestBed.createComponent(Sandbox5Component);
         comp = fixture.componentInstance;
-        console.log(Sandbox5Component);
       });
   }));
 
@@ -57,6 +58,21 @@ describe('Sandbox5 Component: HTTP service calls', () => {
     let service = fixture.debugElement.injector.get(Sandbox5Service);
     expect(service).toBeTruthy();
   });
+
+  /*it('should xxxx', async( () => {
+    fixture.detectChanges();
+
+    let service = fixture.debugElement.injector.get(Sandbox5Service);
+    let comp = fixture.debugElement.injector.get(Sandbox5Component);
+    //console.log(comp);
+
+    //let thing = new Sandbox5Component(service);
+    //console.log(thing);
+
+    console.log(service);
+
+    expect(true).toBe(true);
+  }));*/
 
   /*it('should zzz', () => {
     fixture.detectChanges();

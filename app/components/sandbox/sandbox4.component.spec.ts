@@ -13,28 +13,35 @@ import 'rxjs/add/operator/debounceTime';
 import { Sandbox4Component } from './sandbox4.component';
 import { Sandbox4Service } from './sandbox4.service';
 
-describe('Sandbox4 Component: receiving data from service through observables', () => {
+describe('Sandbox4 Component: fetch data from a service through observables', () => {
 
   let comp:    Sandbox4Component;
   let fixture: ComponentFixture<Sandbox4Component>;
   let de:      DebugElement;
   let el:      HTMLElement;
-  let sandbox: any;
   let sandbox3ServiceStub: any;
 
   beforeEach(async(() => {
-    // stub sandbox4 service for test purposes
+
+    // stubbed service for test purposes
     let sandbox4ServiceStub = {
+
       getNumbers: function () {
         return new Observable(function(observer: any) {
           observer.next(555);
         });
+      },
+
+      getLetter: function() {
+        return 'A';
       }
+
     };
 
+    // set up a test bed and compile the component under test inside of it
     TestBed.configureTestingModule({
       declarations: [ Sandbox4Component ],
-      providers:    [ {provide: Sandbox4Service, useValue: sandbox4ServiceStub } ]
+      providers:    [ {provide: Sandbox4Service, useValue: sandbox4ServiceStub } ] // provide the stub service in place of the real one
     });
     TestBed.compileComponents()
       .then(() => {
@@ -48,18 +55,19 @@ describe('Sandbox4 Component: receiving data from service through observables', 
     expect(comp).toBeTruthy();
   });
 
-  it('should be able to get the injected service', () => {
+  it('should call method getNumbers on service and track interactions with a sinon spy', () => {
     let service = fixture.debugElement.injector.get(Sandbox4Service);
-    console.log(service);
-    console.log(comp);
+    var getNumbersSpy = sinon.spy(service, "getNumbers");
 
-    let spy = spyOn(service, 'getNumbers')
+    service.getNumbers();
+    getNumbersSpy.restore();
+
+    sinon.assert.calledOnce(getNumbersSpy);
+
+    /*let spy = spyOn(service, 'getNumbers')
       .and.returnValue(new Observable((observer: any) => {
         observer.next(555);
-      }));
-    console.log(spy);
-
-    expect(service).toBeTruthy();
+      }));*/
   });
 
   it('should display "555" inside the DOM elem with class "data"', () => {

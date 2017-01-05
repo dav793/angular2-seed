@@ -15,4 +15,8 @@ export class Sandbox3Service {
       return this.data;
     }
 
+    getSynchronousDataArg(arg: number) {
+      return arg;
+    }
+
 }
