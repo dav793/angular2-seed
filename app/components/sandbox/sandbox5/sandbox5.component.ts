@@ -30,6 +30,4 @@ export class Sandbox5Component implements OnInit {
         error =>  this.errorMsg = <any>error);
   }
 
-  myFunc() { return 'hello'; }
-
 }

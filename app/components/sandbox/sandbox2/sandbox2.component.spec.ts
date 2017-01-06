@@ -12,11 +12,8 @@ describe('Sandbox2 Component: compile component with templateUrl', () => {
   let fixture: ComponentFixture<Sandbox2Component>;
   let de:      DebugElement;
   let el:      HTMLElement;
-  let sandbox: any;
 
   beforeEach( async( () => {
-    sandbox = sinon.sandbox.create();
-
     TestBed.configureTestingModule({
       declarations: [
         Sandbox2Component
@@ -29,24 +26,15 @@ describe('Sandbox2 Component: compile component with templateUrl', () => {
       });
   }));
 
-  afterEach(function() {
-    sandbox.restore();
-  });
-
   it(`should be able to get the component instance`, async(() => {
-    let fixture = TestBed.createComponent(Sandbox2Component);
-    let app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(comp).toBeTruthy();
   }));
 
   it(`should have as title 'sandbox2: working'`, async(() => {
-    let fixture = TestBed.createComponent(Sandbox2Component);
-    let app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('sandbox 2: working');
+    expect(comp.title).toEqual('sandbox 2: working');
   }));
 
   it(`should render title in a p tag`, async(() => {
-    let fixture = TestBed.createComponent(Sandbox2Component);
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('p').textContent).toContain('sandbox 2: working');

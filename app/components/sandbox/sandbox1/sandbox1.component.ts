@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
 export class Sandbox1Component {
   title = 'sandbox 1: working';
 
-  myFunc() {
-    return 'yeeah';
-  }
+  myMethod = function() {
+    return 'my value';
+  };
 }

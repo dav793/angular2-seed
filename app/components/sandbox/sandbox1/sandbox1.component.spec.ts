@@ -15,15 +15,14 @@ describe('Sandbox1 Component: use a fixture to test a component', () => {
 
   it('should be able to get the component instance', async(() => {
     let fixture = TestBed.createComponent(Sandbox1Component);
-    let app = fixture.debugElement.componentInstance;
-    console.log(app);
-    expect(app).toBeTruthy();
+    let comp = fixture.debugElement.componentInstance;
+    expect(comp).toBeTruthy();
   }));
 
   it(`should have as title 'sandbox 1: working'`, async(() => {
     let fixture = TestBed.createComponent(Sandbox1Component);
-    let app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('sandbox 1: working');
+    let comp = fixture.debugElement.componentInstance;
+    expect(comp.title).toEqual('sandbox 1: working');
   }));
 
   it('should render title in a p tag', async(() => {
@@ -31,5 +30,11 @@ describe('Sandbox1 Component: use a fixture to test a component', () => {
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('p').textContent).toContain('sandbox 1: working');
+  }));
+
+  it('method myMethod should return "my value"', async(() => {
+    let fixture = TestBed.createComponent(Sandbox1Component);
+    let comp = fixture.debugElement.componentInstance;
+    expect(comp.myMethod()).toEqual('my value');
   }));
 });

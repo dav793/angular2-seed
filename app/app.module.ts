@@ -8,19 +8,19 @@ import { routing } from './app.routing';
 
 // import components
 import { AppComponent }  from './components/app/app';
-import { Sandbox1Component } from './components/sandbox/sandbox1.component';
-import { Sandbox2Component } from './components/sandbox/sandbox2.component';
-import { Sandbox3Component } from './components/sandbox/sandbox3.component';
-import { Sandbox4Component } from './components/sandbox/sandbox4.component';
-import { Sandbox5Component } from './components/sandbox/sandbox5.component';
-import { Sandbox6Component } from './components/sandbox/sandbox6.component';
-import { Sandbox7Component } from './components/sandbox/sandbox7.component';
-import { Sandbox8Component } from './components/sandbox/sandbox8.component';
+import { Sandbox1Component } from './components/sandbox/sandbox1/sandbox1.component';
+import { Sandbox2Component } from './components/sandbox/sandbox2/sandbox2.component';
+import { Sandbox3Component } from './components/sandbox/sandbox3/sandbox3.component';
+import { Sandbox4Component } from './components/sandbox/sandbox4/sandbox4.component';
+import { Sandbox5Component } from './components/sandbox/sandbox5/sandbox5.component';
+import { Sandbox6Component } from './components/sandbox/sandbox6/sandbox6.component';
+import { Sandbox7Component } from './components/sandbox/sandbox6/sandbox7.component';
+import { Sandbox8Component } from './components/sandbox/sandbox6/sandbox8.component';
 
 // import services
-import { Sandbox3Service } from './components/sandbox/sandbox3.service';
-import { Sandbox4Service } from './components/sandbox/sandbox4.service';
-import { Sandbox5Service } from './components/sandbox/sandbox5.service';
+import { Sandbox3Service } from './components/sandbox/sandbox3/sandbox3.service';
+import { Sandbox4Service } from './components/sandbox/sandbox4/sandbox4.service';
+import { Sandbox5Service } from './components/sandbox/sandbox5/sandbox5.service';
 
 // import pipes
 

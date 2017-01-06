@@ -5,11 +5,7 @@ import { By }              from '@angular/platform-browser';
 import { DebugElement }    from '@angular/core';
 
 import { HttpModule } from '@angular/http';
-import { MockBackend } from '@angular/http/testing';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/operator/mergeMap';
-import 'rxjs/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
 
 import { Sandbox5Component } from './sandbox5.component';
@@ -58,6 +54,14 @@ describe('Sandbox5 Component: HTTP service calls', () => {
     let service = fixture.debugElement.injector.get(Sandbox5Service);
     expect(service).toBeTruthy();
   });
+
+  it('should call getUsers after component is initialized', async(() => {
+    let getUsersSpy = sinon.spy(comp, "getUsers");
+    fixture.detectChanges();
+    getUsersSpy.restore();
+
+    sinon.assert.calledOnce(getUsersSpy);
+  }));
 
   /*it('should xxxx', async( () => {
     fixture.detectChanges();

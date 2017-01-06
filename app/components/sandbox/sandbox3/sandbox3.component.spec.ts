@@ -13,7 +13,6 @@ describe('Sandbox3 Component: call synchronous function on service', () => {
   let fixture: ComponentFixture<Sandbox3Component>;
   let de:      DebugElement;
   let el:      HTMLElement;
-  let sandbox: any;
   let sandbox3ServiceStub: any;
 
   beforeEach(async(() => {

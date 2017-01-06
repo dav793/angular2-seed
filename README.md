@@ -64,6 +64,7 @@ with excellent support for Angular apps that use routing.
 Here are the test related scripts:
 * `npm test` - compiles, runs and watches the karma unit tests
 * `npm run test-coverage` - compiles and runs the karma unit tests, and generates code a coverage report under `./coverage`
+(currently broken)
 * `npm run e2e` - run protractor e2e tests, written in JavaScript (*e2e-spec.js)
 
 ## The Sandboxes
@@ -78,14 +79,12 @@ The subjects demonstrated by each sandbox are:
 * Sandbox3: component calls a synchronous function on a service
 * Sandbox4: component fetches data from a service through observables
 * Sandbox5: component gets data from HTTP request (through a service) 
-* Sandbox6: component allows routing between sub-components
-** Sandbox7: one subcomponent
-** Sandbox8: another subcomponent
+* Sandbox6: component allows routing between sub-components Sandbox7 and Sandbox8
 
 Run the unit tests to gain a better understanding of what each sandbox component does. The the next section describes 
 how to run the unit tests.
 
-You can use these components/services as templates for your application, in fact that is their intended purpose.
+You can use these sandboxes as templates for your application, in fact that is their intended purpose.
 
 The tests for each component/service may be found in the files ending with '.spec.ts'. They are placed in the same
 directory as the rest of files related to that component (.html, .css, .ts), as per the 
@@ -94,9 +93,6 @@ directory as the rest of files related to that component (.html, .css, .ts), as 
 ## Testing
 
 This repo adds both karma/jasmine unit test and protractor end-to-end testing support.
-
-The output of the unit tests can help you understand what each sandbox component/service does. 
-They are a form of documentation after all.
 
 ### Unit Tests
 TypeScript unit-tests are usually in the `app` folder. Their filenames must end in `.spec`.

@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
-import { Sandbox7Component } from './components/sandbox/sandbox7.component';
-import { Sandbox8Component } from './components/sandbox/sandbox8.component';
+import { Sandbox7Component } from './components/sandbox/sandbox6/sandbox7.component';
+import { Sandbox8Component } from './components/sandbox/sandbox6/sandbox8.component';
 
 const routes: Routes = [
 	// Add your routes here

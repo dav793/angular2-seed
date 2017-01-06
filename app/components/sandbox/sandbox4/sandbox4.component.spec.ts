@@ -55,11 +55,10 @@ describe('Sandbox4 Component: fetch data from a service through observables', ()
     expect(comp).toBeTruthy();
   });
 
-  it('should call method getNumbers on service and track interactions with a sinon spy', () => {
-    let service = fixture.debugElement.injector.get(Sandbox4Service);
-    var getNumbersSpy = sinon.spy(service, "getNumbers");
+  it('should call component method getNumbers and track interactions with a sinon spy', () => {
+    let getNumbersSpy = sinon.spy(comp, "getNumbers");
 
-    service.getNumbers();
+    comp.getNumbers();
     getNumbersSpy.restore();
 
     sinon.assert.calledOnce(getNumbersSpy);
@@ -70,6 +69,11 @@ describe('Sandbox4 Component: fetch data from a service through observables', ()
       }));*/
   });
 
+  it('should set data property to 555 after calling getNumbers with stubbed service', async(() => {
+    comp.getNumbers();
+    expect(comp.data).toEqual(555);
+  }));
+
   it('should display "555" inside the DOM elem with class "data"', () => {
     fixture.detectChanges();
 
@@ -79,5 +83,14 @@ describe('Sandbox4 Component: fetch data from a service through observables', ()
 
     expect(innerHtml).toEqual('555');
   });
+
+  it('calling component method getNumbers should call getNumbers on service', async(() => {
+    let service = fixture.debugElement.injector.get(Sandbox4Service);
+    let getNumbersSpy = sinon.spy(service, "getNumbers");
+
+    comp.getNumbers();
+    getNumbersSpy.restore();
+    sinon.assert.calledOnce(getNumbersSpy);
+  }));
 
 });

@@ -17,11 +17,11 @@ export class Sandbox4Component implements OnInit {
     this.getNumbers();
   }
 
-  getNumbers() {
+  getNumbers = function() {
     this.sandbox4Service.getNumbers()
       .subscribe(
-        data => this.data = data,
-        err => console.error(err),
+        (data: any) => this.data = data,
+        (err: any) => console.error(err),
         () => console.log('channel closed.')
       );
   }
