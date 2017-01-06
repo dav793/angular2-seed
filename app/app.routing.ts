@@ -1,11 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
-import { Sandbox7Component } from './components/sandbox/sandbox6/sandbox7.component';
-import { Sandbox8Component } from './components/sandbox/sandbox6/sandbox8.component';
+import { Sandbox6aComponent } from './components/sandbox/sandbox6/sandbox6a.component';
+import { Sandbox6bComponent } from './components/sandbox/sandbox6/sandbox6b.component';
 
 const routes: Routes = [
 	// Add your routes here
-    {path: 'sandbox8',   component: Sandbox8Component},
-    {path: '',   component: Sandbox7Component},
+    {path: 'sandbox6b',   component: Sandbox6bComponent},
+    {path: '',   component: Sandbox6aComponent},
     {path: '**', redirectTo: ''}
 ];
 

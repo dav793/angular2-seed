@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
       <p>Sandbox 6 Component: router-outlet container</p>
       
       <!--Template router navigation-->
-      <!--<a routerLink="/" routerLinkActive="active">Navigate to Sandbox7</a>|-->
-      <!--<a routerLink="/sandbox8" routerLinkActive="active">Navigate to Sandbox8</a>-->
+      <!--<a routerLink="/" routerLinkActive="active">Navigate to Sandbox6a</a>|-->
+      <!--<a routerLink="/sandbox6b" routerLinkActive="active">Navigate to Sandbox6b</a>-->
       
       <!--Programatic router navigation-->
-      <a (click)="onClick('/')">Navigate to Sandbox7</a>|
-      <a (click)="onClick('/sandbox8')">Navigate to Sandbox8</a>
+      <a (click)="onClick('/')">Navigate to Sandbox6a</a>|
+      <a (click)="onClick('/sandbox6b')">Navigate to Sandbox6b</a>
       
       <router-outlet></router-outlet>
     </div>

@@ -14,8 +14,8 @@ import { Sandbox3Component } from './components/sandbox/sandbox3/sandbox3.compon
 import { Sandbox4Component } from './components/sandbox/sandbox4/sandbox4.component';
 import { Sandbox5Component } from './components/sandbox/sandbox5/sandbox5.component';
 import { Sandbox6Component } from './components/sandbox/sandbox6/sandbox6.component';
-import { Sandbox7Component } from './components/sandbox/sandbox6/sandbox7.component';
-import { Sandbox8Component } from './components/sandbox/sandbox6/sandbox8.component';
+import { Sandbox6aComponent } from './components/sandbox/sandbox6/sandbox6a.component';
+import { Sandbox6bComponent } from './components/sandbox/sandbox6/sandbox6b.component';
 
 // import services
 import { Sandbox3Service } from './components/sandbox/sandbox3/sandbox3.service';
@@ -39,8 +39,8 @@ import { Sandbox5Service } from './components/sandbox/sandbox5/sandbox5.service'
       Sandbox4Component,
       Sandbox5Component,
       Sandbox6Component,
-      Sandbox7Component,
-      Sandbox8Component
+      Sandbox6aComponent,
+      Sandbox6bComponent
 	],
   providers: [
       Sandbox3Service,

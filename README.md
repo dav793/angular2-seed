@@ -69,9 +69,9 @@ Here are the test related scripts:
 
 ## The Sandboxes
 
-The sandboxes were placed in `app/components/sandbox`. They demonstrate some common interactions between 
-components and services. Each sandbox tries to demonstrate one or few interactions in isolation, to keep their 
-code as simple and quick-to-understand as possible.
+The sandboxes are located in `app/components/sandbox`. They demonstrate some common interactions between 
+components and services. Each sandbox tries to demonstrate only one or few interactions in isolation, to keep their 
+code as simple, quick to understand and easy to modify as possible.
 
 The subjects demonstrated by each sandbox are:
 * Sandbox1: test a component in a test environment which simulates the application (using TestBed)
@@ -79,9 +79,9 @@ The subjects demonstrated by each sandbox are:
 * Sandbox3: component calls a synchronous function on a service
 * Sandbox4: component fetches data from a service through observables
 * Sandbox5: component gets data from HTTP request (through a service) 
-* Sandbox6: component allows routing between sub-components Sandbox7 and Sandbox8
+* Sandbox6: component allows navigation between sub-components Sandbox6a and Sandbox6b using the Router
 
-Run the unit tests to gain a better understanding of what each sandbox component does. The the next section describes 
+Run the unit tests to gain a better understanding of what each sandbox does. The next section describes 
 how to run the unit tests.
 
 You can use these sandboxes as templates for your application, in fact that is their intended purpose.
