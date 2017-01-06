@@ -9,7 +9,7 @@ import {Sandbox3Service} from './sandbox3.service';
   styleUrls: ['./sandbox3.component.css']
 })
 export class Sandbox3Component implements OnInit {
-  title: string = 'sandbox3 component works';
+  title: string = 'sandbox 3: working';
   data: string;
 
   constructor(private sandbox3Service: Sandbox3Service) {}

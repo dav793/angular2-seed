@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./sandbox2.component.css']
 })
 export class Sandbox2Component {
-  title = 'sandbox2 component works';
+  title = 'sandbox 2: working';
 }
