@@ -60,6 +60,10 @@ body {
 	color: #b0bec5 !important;
 }
 
+.btn, .btn:active, .btn:focus {
+  color: rgb(255, 255, 255);
+}
+
 /* TEXT POSITIONING */
 .text-center {
     text-align: center !important;

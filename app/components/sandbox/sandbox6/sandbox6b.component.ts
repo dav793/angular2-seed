@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   moduleId: module.id,
   selector: 'sandbox6b',
   template: '<p>Sandbox 6b Component</p>',
-  styles: ['p {background-color: #48b1bd;}']
+  styles: ['p {background-color: #55d5e1;}']
 })
 export class Sandbox6bComponent implements OnInit {
 

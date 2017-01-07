@@ -19,7 +19,8 @@ import { Router } from '@angular/router';
       
       <router-outlet></router-outlet>
     </div>
-  </div>`
+  </div>`,
+  styles: ['a {cursor: pointer;}']
 })
 export class Sandbox6Component implements OnInit {
 

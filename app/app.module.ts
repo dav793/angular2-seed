@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, Http } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // import routes
 import { routing } from './app.routing';
@@ -16,6 +17,13 @@ import { Sandbox5Component } from './components/sandbox/sandbox5/sandbox5.compon
 import { Sandbox6Component } from './components/sandbox/sandbox6/sandbox6.component';
 import { Sandbox6aComponent } from './components/sandbox/sandbox6/sandbox6a.component';
 import { Sandbox6bComponent } from './components/sandbox/sandbox6/sandbox6b.component';
+import { Sandbox7Component } from './components/sandbox/sandbox7/sandbox7.component';
+import { Sandbox7aComponent } from './components/sandbox/sandbox7/sandbox7a.component';
+import { Sandbox8Component } from './components/sandbox/sandbox8/sandbox8.component';
+import { Sandbox8aComponent } from './components/sandbox/sandbox8/sandbox8a.component';
+import { Sandbox9Component } from './components/sandbox/sandbox9/sandbox9.component';
+import { DynamicFormComponent } from './components/sandbox/sandbox9/dynamic-form.component';
+import { DynamicFormQuestionComponent } from './components/sandbox/sandbox9/dynamic-form-question.component';
 
 // import services
 import { Sandbox3Service } from './components/sandbox/sandbox3/sandbox3.service';
@@ -29,6 +37,8 @@ import { Sandbox5Service } from './components/sandbox/sandbox5/sandbox5.service'
   imports: [
 	    BrowserModule,
       HttpModule,
+      FormsModule,
+      ReactiveFormsModule,
 	    routing
 	],
   declarations: [
@@ -40,7 +50,14 @@ import { Sandbox5Service } from './components/sandbox/sandbox5/sandbox5.service'
       Sandbox5Component,
       Sandbox6Component,
       Sandbox6aComponent,
-      Sandbox6bComponent
+      Sandbox6bComponent,
+      Sandbox7Component,
+      Sandbox7aComponent,
+      Sandbox8Component,
+      Sandbox8aComponent,
+      Sandbox9Component,
+      DynamicFormComponent,
+      DynamicFormQuestionComponent
 	],
   providers: [
       Sandbox3Service,
