@@ -1,0 +1,43 @@
+<div>
+
+  <div class="card">
+    <div class="card-block">
+
+      <h2>Contact</h2>
+
+      <p>This is the contact view: {{contactId}}</p>
+
+      <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+        <div *ngFor="let field of fields" class="form-row">
+          <df-field [field]="field" [form]="form" (onChanged)="onFieldChange($event)"></df-field>
+        </div>
+
+        <!--<div class="row">-->
+          <!--<div class="col-xs-4">-->
+            <!--<df-field [field]="fields[0]" [form]="form"></df-field>-->
+          <!--</div>-->
+          <!--<div class="col-xs-4">-->
+            <!--<df-field [field]="fields[1]" [form]="form"></df-field>-->
+          <!--</div>-->
+          <!--<div class="col-xs-4">-->
+            <!--<df-field [field]="fields[2]" [form]="form"></df-field>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <div class="form-row">
+          <button type="submit" [disabled]="!form.valid">Save</button>
+        </div>
+
+      </form>
+
+    </div>
+
+    <!--<pre>{{contact.data | json}}</pre>-->
+
+    <div class="card-footer">
+      <h4>&lt;footer_content&gt;</h4>
+    </div>
+  </div>
+
+</div>

@@ -14,10 +14,7 @@ some usages of components and services. The tested scenarios include:
 * Use of [sinon](https://www.npmjs.com/package/karma-sinon) test doubles (stubs, mocks, spies)
 
  
-Some other things this app uses:
-* [browserify] (https://www.npmjs.com/package/browserify)
-* [lite-server] (https://www.npmjs.com/package/lite-server)
-* [jQuery] (https://www.npmjs.com/package/jquery)
+
 
 ### Prerequisites
 
@@ -28,8 +25,8 @@ Older versions produce errors.
 ## Clone
 Clone this repo into new project folder (e.g., `my-proj`).
 ```bash
-git clone  https://github.com/dav793/angular2-seed.git  my-proj
-cd my-proj
+git clone  https://github.com/dav793/et-escrow.erp.git  your-dir-name
+cd your-dir-name
 ```
 
 ## Install npm package dependencies
@@ -45,7 +42,9 @@ npm start
 
 The `npm start` command first compiles the application, then runs the `lite-server`. 
 Afterwards, it simultaneously re-compiles and re-runs whenever file change is detected.
-Both the compiler and the server watch for file changes.
+Both the compiler and the server watch for file changes. `npm start` does not run any backend server.
+
+To compile the app, run `lite-server` and also a test backend server, use `npm start-s`.
 
 Shut it down manually with `Ctrl-C`.
 
@@ -53,13 +52,10 @@ Shut it down manually with `Ctrl-C`.
 
 Some useful commands defined in `package.json`:
 
-* `npm start` - runs the compiler and a server at the same time, both in "watch mode".
-* `npm run tsc` - runs the TypeScript compiler once.
+* `npm start` - runs the compiler and a server (to serve the app) at the same time, both in "watch mode". does not run any backend server.
+* `npm start-s` - runs the compiler, a testing backed server and another server for serving the app, all at the same time and in "watch mode".
+* `npm run tsc` - runs the TypeScript compiler once. It runs on all the .ts files in the project.
 * `npm run tsc:w` - runs the TypeScript compiler in watch mode; the process keeps running, awaiting changes to TypeScript files and re-compiling when it sees them.
-* `npm run lite` - runs the [lite-server](https://www.npmjs.com/package/lite-server), a light-weight, static file server, written and maintained by
-[John Papa](https://github.com/johnpapa) and
-[Christopher Martin](https://github.com/cgmartin)
-with excellent support for Angular apps that use routing.
 
 Here are the test related scripts:
 * `npm test` - compiles, runs and watches the karma unit tests
@@ -67,35 +63,9 @@ Here are the test related scripts:
 (currently broken)
 * `npm run e2e` - run protractor e2e tests, written in JavaScript (*e2e-spec.js)
 
-## The Sandboxes
-
-The sandboxes are located in `/app/components/sandbox`. They demonstrate some common interactions between 
-components and services. Each sandbox tries to demonstrate only one or few interactions in isolation, 
-in order to keep their code simple, quick to understand and easy to modify.
-
-The subjects demonstrated by each sandbox are:
-* Sandbox1: test a component in an environment which simulates the application (using TestBed)
-* Sandbox2: compile component under test which uses templateUrl (async)
-* Sandbox3: component calls a synchronous function on a service
-* Sandbox4: component fetches data asynchronously (through observables) from a service
-* Sandbox5: component gets data from HTTP request (through a service) 
-* Sandbox6: component allows navigation between child components using the Router
-* Sandbox7: child component uses @Input and @Output to communicate with parent controller (also uses a basic form)
-* Sandbox8: parent component interacts with child component via local variable
-* reactive forms PENDING
-
-You can use these sandboxes as templates for parts of your application, in fact that is their intended purpose.
-
-All of the sandboxes had unit tests written for them. Run the tests and look at their output to get a better 
-understanding of what each sandbox does. The next section describes how to run the unit tests.
-
-The tests for each sandbox can be found in the files ending with '.spec.ts'. They are placed in the same
-directory as the rest of files related to that component (.html, .css, .ts), as per the 
-[Angular 2 Style Guide](https://angular.io/docs/ts/latest/guide/style-guide.html).
-
 ## Testing
 
-This repo adds both karma/jasmine unit test and protractor end-to-end testing support.
+This project uses both karma/jasmine unit test and protractor end-to-end testing support.
 
 ### Unit Tests
 TypeScript unit-tests are usually in the `app` folder. Their filenames must end in `.spec`.
@@ -119,3 +89,23 @@ To debug tests with Chrome's inspector, hit the DEBUG button. This will open a n
 ### Code coverage (currently broken!)
 Run `npm run test-coverage` to run the unit tests and generate a code coverage report using istanbul. 
 The report is stored in the directory `./coverage`
+
+## Configuration
+### Enable Production Mode
+This must be done whenever a build is passed into production.
+* In `/app/shared/config.service.ts` change the value of `isDev` to true:
+```typescript
+export class ConfigService {
+
+  isDev = true;   // set to false to turn on production mode
+  
+  ...
+```
+* in `/app/app.module.ts`, call `enableProdMode()` somewhere before the bootstrap near the end of the file
+
+## Extra
+Some other things this app uses:
+* SystemJS
+* [browserify] (https://www.npmjs.com/package/browserify)
+* [lite-server] (https://www.npmjs.com/package/lite-server)
+* [jQuery] (https://www.npmjs.com/package/jquery)

@@ -1,0 +1,7 @@
+
+#app-left-sidebar {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  background-color: red;
+}

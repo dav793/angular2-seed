@@ -1,55 +1,47 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
+
+
+import { ContactService } from '../contact/contact.service';
+import { ContactServiceStub } from '../contact/contact.service.stub';
+
+import { ConfigService } from '../../shared/config.service';
+import { WebSocketService } from '../../shared/websocket.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'app',
-  template: `
-    <div class="row">
-      <div class="col-xs-12">
-        <h2>app is working</h2>
-        <p>guide @ <a href="https://github.com/dav793/angular2-seed">github</a></p>
-      </div>
-    </div>  
-    
-    <div class="row">
-      <div class="col-xs-4">
-        <sandbox1></sandbox1>
-      </div>  
-      
-      <div class="col-xs-4">
-        <sandbox2></sandbox2>
-      </div> 
-   
-      <div class="col-xs-4">
-        <sandbox3></sandbox3>
-      </div> 
-    </div>
-    
-    <div class="row">
-      <div class="col-xs-4">
-        <sandbox4></sandbox4>
-      </div>  
-      
-      <div class="col-xs-4">
-        <sandbox5></sandbox5>
-      </div> 
-   
-      <div class="col-xs-4">
-        <sandbox6></sandbox6>
-      </div> 
-    </div>
-
-    <div class="row">
-      <div class="col-xs-4">
-        <sandbox7></sandbox7>
-      </div>  
-      
-      <div class="col-xs-4">
-        <sandbox8></sandbox8>
-      </div> 
-   
-      <div class="col-xs-4">
-        <sandbox9></sandbox9>
-      </div> 
-    </div>`
+  templateUrl: `./app.html`,
+  providers: [
+    { provide: ContactService,
+      useFactory: (http: Http, ws: WebSocketService, cs: ConfigService) => {
+        if (cs.isDev)
+          return new ContactServiceStub(http, ws, cs);
+        else
+          return new ContactService(http, ws, cs);
+      }, deps: [Http, WebSocketService, ConfigService]}
+  ]
 })
-export class AppComponent  { }
+export class AppComponent  {
+  constructor(private cs: ContactService) {
+
+    /*this.cs.getContactById(2)
+      .subscribe(
+        data => {   // observer sends contact
+          console.log(data);
+        },
+        err => console.log("Can't get contact. Error code: %s, URL: %s ",  err.status, err.url),
+        () => {}
+      );*/
+
+    /*this.cs.getContactField('firstName', 2)
+      .subscribe(
+        data => {   // observer sends contact
+          console.log(data);
+        },
+        err => console.log("Can't get contact. Error code: %s, URL: %s ",  err.status, err.url),
+        () => {}
+      );*/
+
+  }
+}
