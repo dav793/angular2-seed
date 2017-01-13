@@ -82,7 +82,7 @@ export class Sandbox7aComponent implements OnInit, OnChanges {
     });
   }
 
-  parseFormContents(formModel: FormGroup) {
+  parseFormContents(formModel: FormGroup): Contact {
     return new Contact(
       parseInt(formModel.get('id').value),        // id
       formModel.get('name').get('first').value,   // name.first

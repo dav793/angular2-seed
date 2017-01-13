@@ -54,6 +54,8 @@ Shut it down manually with `Ctrl-C`.
 Some useful commands defined in `package.json`:
 
 * `npm start` - runs the compiler and a server at the same time, both in "watch mode".
+* `npm run start-s` - same as `start`, but it also runs a simple server which sandbox 11 uses.
+* `npm run start-s-silent` - same as `start-s`, but shuts up lite-server so you can see the output produced by the other server.
 * `npm run tsc` - runs the TypeScript compiler once.
 * `npm run tsc:w` - runs the TypeScript compiler in watch mode; the process keeps running, awaiting changes to TypeScript files and re-compiling when it sees them.
 * `npm run lite` - runs the [lite-server](https://www.npmjs.com/package/lite-server), a light-weight, static file server, written and maintained by
@@ -74,19 +76,26 @@ components and services. Each sandbox tries to demonstrate only one or few inter
 in order to keep their code simple, quick to understand and easy to modify.
 
 The subjects demonstrated by each sandbox are:
-* Sandbox1: test a component in an environment which simulates the application (using TestBed)
-* Sandbox2: compile component under test which uses templateUrl (async)
-* Sandbox3: component calls a synchronous function on a service
-* Sandbox4: component fetches data asynchronously (through observables) from a service
-* Sandbox5: component gets data from HTTP request (through a service) 
-* Sandbox6: component allows navigation between child components using the Router
-* Sandbox7: child component uses @Input and @Output to communicate with parent controller (also uses a basic form)
-* Sandbox8: parent component interacts with child component via local variable
-* reactive forms PENDING
+* Sandbox1: Test a component in an environment which simulates the application (TestBed).
+* Sandbox2: Compile component under test which uses templateUrl (async).
+* Sandbox3: Component calls a synchronous function on a service.
+* Sandbox4: Component fetches data asynchronously (through observables) from a service.
+* Sandbox5: Component gets data from HTTP request (through a service).
+* Sandbox6: Component allows navigation between child components using the Router.
+* Sandbox7: Child component uses @Input and @Output to communicate with parent controller (using a form).
+* Sandbox8: Parent component interacts with child component via local variable.
+* Sandbox9: Component generates a form programatically using reactive forms.
+* Sandbox10: **Not yet implemented.**
+* Sandbox11: Service communicates with express server using WebSockets. (remember to use `npm run start-s-silent` for this one)
+* Sandbox12: Custom form element that plays nicely with angular forms
+* Sandbox13: Custom form element with validation
+* Sandbox14: Custom combobox with validation
 
-You can use these sandboxes as templates for parts of your application, in fact that is their intended purpose.
+You can use these sandboxes as a quick code reference when working with your projects. You can
+also build on them and experiment with Angular 2. You are welcome to use them as templates for your own projects as well.
 
-All of the sandboxes had unit tests written for them. Run the tests and look at their output to get a better 
+
+~~Most~~ Some of the sandboxes had unit tests written for them. Run the tests and look at their output to get a better 
 understanding of what each sandbox does. The next section describes how to run the unit tests.
 
 The tests for each sandbox can be found in the files ending with '.spec.ts'. They are placed in the same
