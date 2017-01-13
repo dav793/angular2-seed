@@ -1,0 +1,6 @@
+{
+  "globalDependencies": {
+    "hammerjs": "registry:dt/hammerjs#2.0.8+20160727175746",
+    "sinon": "registry:dt/sinon#1.16.1+20161208163514"
+  }
+}
