@@ -161,3 +161,6 @@ table {
     background-color: #eceff1;
 }
 
+.invisible {
+  display: none;
+}
