@@ -76,8 +76,23 @@ import { Component } from '@angular/core';
       </div>
       
       <div class="col-xs-4">
-        
+        <sandbox15></sandbox15>
       </div>
-    </div>`
+    </div>
+
+    <div class="row">
+      <div class="col-xs-4">
+        <sandbox16></sandbox16>
+      </div>
+      
+      <div class="col-xs-4">
+
+      </div>
+      
+      <div class="col-xs-4">
+
+      </div>
+    </div>
+`
 })
 export class AppComponent  { }

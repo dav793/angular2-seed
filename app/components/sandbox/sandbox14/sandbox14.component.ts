@@ -1,9 +1,9 @@
 import { Component, OnInit }  from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { ComboInputComponent } from './combo-input.component';
-import { CustomSelectOption } from './combo-input.component';
-import { createCustomSelectValidator } from './combo-input.component';
+import { SelectInputComponent } from './select-input.component';
+import { CustomSelectOption } from './select-input.component';
+import { createCustomSelectValidator } from './select-input.component';
 
 
 @Component({
@@ -12,11 +12,11 @@ import { createCustomSelectValidator } from './combo-input.component';
   template: `<div class="card">
     <div class="card-block">
 
-      <p>Sandbox 14 - custom combobox element</p>
+      <p>Sandbox 14 - custom selectbox element</p>
       
       <p>Q: Mary had a little _____ ?</p>
       <form [formGroup]="form">
-        <combo-input formControlName="selected" [options]="opts"></combo-input>
+        <select-input formControlName="selected" [options]="opts"></select-input>
       </form>
       <p *ngIf="!form.valid && form.dirty">hmm... that doesn't sound right</p>
       <p *ngIf="form.valid">why yes, yes she did!</p>

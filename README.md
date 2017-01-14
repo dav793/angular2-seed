@@ -90,6 +90,8 @@ The subjects demonstrated by each sandbox are:
 * Sandbox12: Custom form element that plays nicely with angular forms
 * Sandbox13: Custom form element with validation
 * Sandbox14: Custom combobox with validation
+* Sandbox15: Custom combobox with search filter
+* Sandbox16: Custom combobox with multiple selection
 
 You can use these sandboxes as a quick code reference when working with your projects. You can
 also build on them and experiment with Angular 2. You are welcome to use them as templates for your own projects as well.

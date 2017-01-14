@@ -1,6 +1,8 @@
 import { Component, Input, forwardRef, OnChanges, OnInit, ElementRef } from '@angular/core';
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
 
+import { filterSearchPipe } from './filter-search.pipe';
+
 
 export interface CustomSelectOption {
   key: string;
@@ -31,11 +33,12 @@ export function createCustomSelectValidator(allowed: string[]) {
   selector: 'combo-input',
   template: `
     <div>
-      <div class="selectionBox" (click)="openOptionsBox()">
+      <div class="selectionBox" (click)="onSelBoxClick(searchBox)">
         <p>{{ (findOptionByKey(selectedValue) ? findOptionByKey(selectedValue).label: '') }}</p>
+        <input type="text" (keyup)="onSearchKeyup(searchBox)" [(ngModel)]="_search" [style.width.px]="_searchBoxWidth" #searchBox/>
       </div>
       <div class="optionsBox" *ngIf="_optionBoxOpen"><div>
-        <div *ngFor="let option of options" (click)="select(option.key)" [ngClass]="{active: selectedValue === option.key}">
+        <div *ngFor="let option of options | filterSearch:_search" (click)="select(option.key)" [ngClass]="{active: selectedValue === option.key}">
           {{option.label}}
         </div>
       </div></div>
@@ -43,10 +46,11 @@ export function createCustomSelectValidator(allowed: string[]) {
   `,
   styles: [`
     .selectionBox, .optionsBox > div { border: 1px solid #000; background-color: #fff; }
-    .selectionBox { height: 34px;; }
-    .selectionBox p { margin: 5px 0 0 5px; }
+    .selectionBox { height: auto; }
+    .selectionBox p { margin: 5px 0 0 5px; display: inline; }
+    .selectionBox input[type="text"] { background: rgba(0, 0, 0, 0); border: none; outline: none; }
     .optionsBox { position: relative; }
-    .optionsBox > div { position: absolute; border-top: none; width: 100%; }
+    .optionsBox > div { position: absolute; border-top: none; width: 100%; max-height: 280px; overflow-y: auto; }
     .optionsBox > div > div:hover { background-color: #c8c5ff; }
     .optionsBox > div > div.active:hover, .active { background-color: #000066; color: #fff; }
     .selectionBox, .optionsBox > div > div { cursor: pointer; }
@@ -66,7 +70,9 @@ export function createCustomSelectValidator(allowed: string[]) {
 })
 export class ComboInputComponent implements ControlValueAccessor, OnChanges  {
 
-  _optionBoxOpen = false;
+  _optionBoxOpen: boolean = false;
+  _search: string = '';
+  _searchBoxWidth: number = 8;
   @Input() _selectedValue: string;
   @Input() options: CustomSelectOption[];
 
@@ -83,16 +89,27 @@ export class ComboInputComponent implements ControlValueAccessor, OnChanges  {
       this.closeOptionsBox();  //console.log(event);
   }
 
+  onSelBoxClick(elem: any) {
+    elem.focus();
+    this.openOptionsBox();
+  }
+
+  onSearchKeyup(elem: any) {
+    this._searchBoxWidth = (elem.value.length + 1) * 8;
+  }
+
+  clearSearch() {
+    this._search = "";
+    this._searchBoxWidth = 8;
+  }
+
   openOptionsBox() {
     this._optionBoxOpen = true;
   }
 
   closeOptionsBox() {
     this._optionBoxOpen = false;
-  }
-
-  ngOnChanges(changes: any) {
-    console.log(changes);
+    this.clearSearch();
   }
 
   select(k: string) {
@@ -107,6 +124,10 @@ export class ComboInputComponent implements ControlValueAccessor, OnChanges  {
     this._selectedValue = val;
     this.closeOptionsBox();
     this.propagateChange(this._selectedValue);
+  }
+
+  ngOnChanges(changes: any) {
+    console.log(changes);
   }
 
   validate(c: FormControl) {

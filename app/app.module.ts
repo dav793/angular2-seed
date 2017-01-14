@@ -30,7 +30,11 @@ import { Sandbox12Component } from './components/sandbox/sandbox12/sandbox12.com
 import { CounterInputComponent } from './components/sandbox/sandbox12/counter-input.component';
 import { Sandbox13Component } from './components/sandbox/sandbox13/sandbox13.component';
 import { Sandbox14Component } from './components/sandbox/sandbox14/sandbox14.component';
-import { ComboInputComponent } from './components/sandbox/sandbox14/combo-input.component';
+import { SelectInputComponent } from './components/sandbox/sandbox14/select-input.component';
+import { Sandbox15Component } from './components/sandbox/sandbox15/sandbox15.component';
+import { ComboInputComponent } from './components/sandbox/sandbox15/combo-input.component';
+import { Sandbox16Component } from './components/sandbox/sandbox16/sandbox16.component';
+import { ComboInputMultiComponent } from './components/sandbox/sandbox16/combo-input-multi.component';
 
 // import services
 import { Sandbox3Service } from './components/sandbox/sandbox3/sandbox3.service';
@@ -38,7 +42,7 @@ import { Sandbox4Service } from './components/sandbox/sandbox4/sandbox4.service'
 import { Sandbox5Service } from './components/sandbox/sandbox5/sandbox5.service';
 
 // import pipes
-
+import { filterSearchPipe } from './components/sandbox/sandbox15/filter-search.pipe';
 
 @NgModule({
   imports: [
@@ -71,7 +75,12 @@ import { Sandbox5Service } from './components/sandbox/sandbox5/sandbox5.service'
       CounterInputComponent,
       Sandbox13Component,
       Sandbox14Component,
-      ComboInputComponent
+      SelectInputComponent,
+      Sandbox15Component,
+      ComboInputComponent,
+      filterSearchPipe,
+      Sandbox16Component,
+      ComboInputMultiComponent
 	],
   providers: [
       Sandbox3Service,
